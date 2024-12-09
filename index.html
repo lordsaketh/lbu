@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Roopitha!</title>
+    <style>
+        body {
+          background: url('file:///C:/Users/Rajamahendra/Downloads/image%20(1).png') no-repeat center center;
+background-size: 50% auto;  /* Increases the size to zoom in */
+background-position: center center;
+font-family: 'Georgia', serif;
+text-align: center;
+color: #fff;
+padding: 5vh 5vw;
+margin: 0;
+
+        }
+
+        h1 {
+            font-size: calc(2rem + 2vh);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        h2 {
+            font-size: calc(1.5rem + 1vh);
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .balloon-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2vw;
+        }
+
+        .balloon {
+            width: 90px;
+            height: 120px;
+            background: linear-gradient(to bottom, #8b8b8b, #d3d3d3);
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c2c2c;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            box-shadow: inset -3px -3px 8px rgba(255, 255, 255, 0.8), 3px 3px 10px rgba(0, 0, 0, 0.4);
+            animation: float 4s ease-in-out infinite;
+            transition: transform 0.3s;
+        }
+
+        .balloon:hover {
+            transform: scale(1.1) rotate(-5deg);
+            background: linear-gradient(to bottom, #a5a5a5, #f2f2f2);
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            top: 120px;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            background: #ccc;
+            transform: translateX(-50%);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .note {
+            display: none;
+            font-size: 1.4rem;
+            margin-top: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(4, 120px);
+            grid-gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .card {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(145deg, #e0e0e0, #f9f9f9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: #333;
+            border-radius: 15px;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .card.flipped {
+            background-color: #ffffff;
+            pointer-events: none;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover {
+            background: linear-gradient(145deg, #f4f4f4, #d9d9d9);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        #message {
+            font-size: 1.5rem;
+            text-align: center;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        .victory-message {
+            font-size: 1.8rem;
+            color: #e0e0e0;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .gift-box {
+            display: none;
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            background: url('https://cdn-icons-png.flaticon.com/512/1077/1077990.png') no-repeat center center/contain;
+            cursor: pointer;
+        }
+
+        .victory-link {
+            display: none;
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #add8e6;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Happy Birthday, Roopitha!</h1>
+    <h2>Each balloon reveals a special memory for you!</h2>
+
+    <div class="balloon-container">
+        <div class="balloon" onclick="revealNote(1)">R</div>
+        <div class="balloon" onclick="revealNote(2)">O</div>
+        <div class="balloon" onclick="revealNote(3)">O</div>
+        <div class="balloon" onclick="revealNote(4)">P</div>
+        <div class="balloon" onclick="revealNote(5)">I</div>
+        <div class="balloon" onclick="revealNote(6)">T</div>
+        <div class="balloon" onclick="revealNote(7)">H</div>
+        <div class="balloon" onclick="revealNote(8)">A</div>
+    </div>
+
+    <div id="note1" class="note">"R: <P>radint like the dawns first ray</p>
+    <P>  with eyes supple and grey</P>
+    <P>  hair lustrous as the grace Bay</P>
+    <P>  voice fearless and fierce as the lions rear"</P></div>
+    <div id="note2" class="note">"O: <p>talks random yet magical, opening doars</p>
+      <p>oaths taken to never break the rose</p>
+        <p>o,be my sun and i will be your moon</p>
+          <p>together we dance till the times doom</p>."</div>
+    <div id="note3" class="note">"O: <p>smell of your breath drives me obscure</p>
+    <p>a skin like a canvas milky and boon</p>
+    <p>wrapped in your skin gentle and true</p>
+    <p>a warmth that surrounds me only with you</p></div>
+    <div id="note4" class="note">"P: <p>persistent love where true strength is found"</p>"
+      <p>preserving through storms we stand side by side</p>
+        <p>proven forever with nowhere to hide</p></div>
+
+    <div id="note5" class="note">"I: <p>i see you smile night by night</p>
+
+      <p>tears and worries will never reach your sight</p>
+        <p>i will be your beacon of hope in your every fight</p>
+          <p>needless to say iam your strongest knight</p></div>
+
+
+    <div id="note6" class="note">"T:<p>till time fades i will walk with you near</p>
+      <p>trusting in love with nothing to fear</p>
+        <p>together we will stand no matter how wide</p>
+          <p>till the end i will be by your side</p></div>
+    <div id="note7" class="note">"H:<p>how can i survive without your might</p>
+      <p>nightmares crackle by your plight </p>
+        <p>how can i make you love me more</p>
+          <p>when iam not anything worth more</p></div>
+    <div id="note8" class="note">"A:
+      <p>a man and a woman once fell in love </p>
+      <p>a love that no one can attest in the whole world</p>
+      <p>nor rama nor julet </p>
+      <p>a love that no one came across</p>
+      </div>
+
+    <div class="game-container" id="gameContainer"></div>
+    <div id="message"></div>
+
+    <div class="gift-box" id="giftBox" onclick="revealGift()"></div>
+    <a id="giftLink" class="victory-link" href="https://media.istockphoto.com/id/695857482/vector/outrageous-and-contempt-hand-gesture-vector-illustration.jpg?s=612x612&w=0&k=20&c=iheogaSwgP-y60pSKrAgPIrZ7laBYUCdoY0kZA-zV4c=" target="_blank">Click here for your gift!</a>
+
+    <script>
+        let currentNote = null;
+        let flippedCards = [];
+        let matchedPairs = 0;
+
+        const memoryCards = [
+            "🎸", "🎤", "💃", "🎹",
+            "🎸", "🎤", "💃", "🎹",
+            "🌟", "❤️", "✨", "🎶",
+            "🌟", "❤️", "✨", "🎶"
+        ];
+
+        const shuffledCards = memoryCards.sort(() => 0.5 - Math.random());
+        const gameContainer = document.getElementById("gameContainer");
+
+        // Function to reveal notes
+        function revealNote(number) {
+            if (currentNote) {
+                currentNote.style.display = 'none';
+            }
+            const newNote = document.getElementById(`note${number}`);
+            newNote.style.display = 'block';
+            currentNote = newNote;
+        }
+
+        // Function to create and flip memory cards
+        function createCard(content) {
+            const card = document.createElement("div");
+            card.classList.add("card");
+            card.dataset.value = content;
+            card.innerText = '';
+
+            card.addEventListener("click", () => {
+                if (flippedCards.length === 2 || card.classList.contains("flipped")) return;
+
+                card.innerText = content;
+                card.classList.add("flipped");
+                flippedCards.push(card);
+
+                if (flippedCards.length === 2) {
+                    checkMatch();
+                }
+            });
+
+            return card;
+        }
+
+        function checkMatch() {
+            const [firstCard, secondCard] = flippedCards;
+
+            if (firstCard.dataset.value === secondCard.dataset.value) {
+                matchedPairs++;
+                if (matchedPairs === memoryCards.length / 2) {
+                    document.getElementById("message").innerText = "Congratulations! you are smarter than i expected here is you gift just click the thing below";
+                    document.getElementById("giftBox").style.display = "block";
+                }
+                flippedCards = [];
+            } else {
+                setTimeout(() => {
+                    firstCard.innerText = '';
+                    secondCard.innerText = '';
+                    firstCard.classList.remove("flipped");
+                    secondCard.classList.remove("flipped");
+                    flippedCards = [];
+                }, 1000);
+            }
+        }
+
+        function revealGift() {
+            const giftLink = document.getElementById("giftLink");
+            giftLink.style.display = "block";
+            document.getElementById("giftBox").style.display = "none";
+        }
+
+        // Function to initialize the game
+        function initGame() {
+            shuffledCards.forEach((symbol) => {
+                const card = createCard(symbol);
+                gameContainer.appendChild(card);
+            });
+        }
+
+        initGame();
+    </script>
+
+</body>
+</html>
